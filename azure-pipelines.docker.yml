@@ -49,3 +49,6 @@ steps:
   displayName: 'Run tests'
 
 
+- script: make
+  workingDirectory: '$(modulePath)'
+  displayName: 'Build Docker files with make'
