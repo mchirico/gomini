@@ -8,7 +8,11 @@
 ```
 minikube tunnel
 k expose deployment gomini-pod --type=LoadBalancer --name=gomini-service
+k expose deployment gomini-pv-pod --type=LoadBalancer --name=gomini-pv-service
 
+
+# Dashboard
+minikube dashboard
 
 ```
 
