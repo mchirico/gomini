@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gomini-pv-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gomini-pv-pod
+  template:
+    metadata:
+      labels:
+        app: gomini-pv-pod
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      imagePullSecrets:
+      - name: gcr-json-key
+      volumes:
+        - name: task-pv-storage
+          persistentVolumeClaim:
+            claimName: task-pv-claim
+      containers:
+      - name: gomini-pv-pod
+        image: gcr.io/mchirico/gomini:pv
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 124m
+            memory: 512Mi
+          limits:
+            cpu: 700m
+            memory: 1152Mi
+        ports:
+        - containerPort: 3000
+          name: gomini-pv-pod
+        volumeMounts:
+          - mountPath: "/pv"
+            name: task-pv-storage

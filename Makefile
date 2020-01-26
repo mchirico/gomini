@@ -2,9 +2,11 @@
 
 docker-build:
 	docker build --no-cache -t gcr.io/mchirico/gomini:test -f Dockerfile .
+	docker build --no-cache -t gcr.io/mchirico/gomini:pv -f Dockerfile-pv .
 
 push:
 	docker push gcr.io/mchirico/gomini:test
+	docker push gcr.io/mchirico/gomini:pv
 
 build:
 	go build -v .

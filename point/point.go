@@ -1,4 +1,5 @@
 package point
+
 import (
 	"context"
 	"github.com/go-chi/chi"
@@ -33,12 +34,11 @@ func (api *POINT) MainListen(ctx context.Context) {
 			log.Fatalf("err: %s\n", err)
 		}
 
-
 		w.Write([]byte(ReadFile(api.File)))
 	})
 
 	server := &http.Server{Addr: ":3000", Handler: r}
-	//http.ListenAndServe(":3000", r)
+
 	server.ListenAndServe()
 	if err := server.Shutdown(ctx); err != nil {
 		log.Printf("error")
