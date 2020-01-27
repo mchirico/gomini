@@ -7,6 +7,7 @@
 
 ```
 minikube tunnel
+# or minikube tunnel &> /dev/null &
 k expose deployment gomini-pod --type=LoadBalancer --name=gomini-service
 k expose deployment gomini-pv-pod --type=LoadBalancer --name=gomini-pv-service
 

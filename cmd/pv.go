@@ -35,9 +35,8 @@ to quickly create a Cobra application.`,
 		// TODO: hmm... can do better
 		ctx, cancel := context.WithCancel(context.Background())
 		defer cancel()
-		EntryPt(ctx,"/pv/data.csv")
+		EntryPt(ctx, "/pv/data.csv")
 	},
-
 }
 
 func init() {

@@ -11,5 +11,9 @@ push:
 build:
 	go build -v .
 
+test:
+	go fmt ./...
+	go test ./...
+
 run:
 	docker run --rm -it -p 3000:3000  gcr.io/mchirico/gomini:test
