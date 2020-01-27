@@ -18,6 +18,7 @@ func DataSend(file string) http.HandlerFunc {
 
 		data := []byte("test")
 		err := ioutil.WriteFile("bbdata.csv", data, 0600)
+		fmt.Printf("file:  %s\n", file)
 		if err != nil {
 			log.Fatalf("err: %s\n", err)
 		}

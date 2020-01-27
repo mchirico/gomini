@@ -1,5 +1,7 @@
 [![Build Status](https://dev.azure.com/mchirico/gomini/_apis/build/status/mchirico.gomini?branchName=master)](https://dev.azure.com/mchirico/gomini/_build/latest?definitionId=37&branchName=master)
 
+[![codecov](https://codecov.io/gh/mchirico/gomini/branch/master/graph/badge.svg)](https://codecov.io/gh/mchirico/gomini)
+
 
 
 # gomini
