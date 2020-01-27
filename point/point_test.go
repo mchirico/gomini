@@ -21,7 +21,7 @@ func TestMainListen(t *testing.T) {
 
 	go func() {
 		api := NewPointFile("./data.csv")
-		api.MainListen(ctx)
+		api.MainListen(ctx, ":3000")
 		for {
 			select {
 
