@@ -15,8 +15,7 @@ import (
 func TestMainListen(t *testing.T) {
 	defer util.NewTlib().ConstructDir()()
 
-	ctx, cancel := context.WithTimeout(context.Background(),
-		time.Duration(4*time.Second))
+	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
 	go func() {

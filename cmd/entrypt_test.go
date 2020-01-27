@@ -22,8 +22,7 @@ func TestEntryPt(t *testing.T) {
 	util.WriteString(file, expected_value, 0644)
 	fmt.Printf("here: %v\n", file)
 
-	ctx, cancel := context.WithTimeout(context.Background(),
-		time.Duration(2*time.Second))
+	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
 	go func() {
