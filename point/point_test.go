@@ -13,8 +13,9 @@ import (
 )
 
 func TestMainListen(t *testing.T) {
-	defer util.NewTlib().ConstructDir()()
-
+	tlib := &util.Tlib{FindFunc: util.FindFile, MockDir: "../test-fixtures", SubDir: "TestPoint"}
+	defer util.NewTlib(tlib).ConstructDir()()
+	
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
