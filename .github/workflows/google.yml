@@ -22,9 +22,9 @@ env:
   GITHUB_SHA: ${{ github.sha }}
   GKE_ZONE: us-central1
   GKE_CLUSTER: example-gke-cluster
-  IMAGE: gke-test
+  IMAGE: gomini
   REGISTRY_HOSTNAME: gcr.io
-  DEPLOYMENT_NAME: gke-test
+  DEPLOYMENT_NAME: gomini
 
 jobs:
   setup-build-publish-deploy:
