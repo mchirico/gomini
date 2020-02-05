@@ -11,7 +11,10 @@ import (
 	"testing"
 	"time"
 )
-
+/*
+See the following for better testing:
+https://golang.org/src/net/http/httptest/example_test.go
+ */
 func TestMainListen(t *testing.T) {
 	tlib := &util.Tlib{FindFunc: util.FindFile, MockDir: "../test-fixtures", SubDir: "TestPoint"}
 	defer util.NewTlib(tlib).ConstructDir()()
@@ -21,7 +24,7 @@ func TestMainListen(t *testing.T) {
 
 	go func() {
 		api := NewPointFile("./data.csv")
-		api.MainListen(ctx, ":3000")
+		api.MainListen(ctx, ":3020")
 		for {
 			select {
 
