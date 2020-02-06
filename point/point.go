@@ -20,12 +20,17 @@ func NewPointFile(file string) *POINT {
 	return &POINT{File: file}
 }
 
-func (api *POINT) MainListen(ctx context.Context, port string) {
-
+func NewMux(file string) *chi.Mux {
 	r := chi.NewRouter()
 	r.Get("/", handler.TextMsg("hit point v1.0"))
-	r.Get("/data", handler.DataSend(api.File))
+	r.Get("/data", handler.DataSend(file))
+	return r
 
+}
+
+func (api *POINT) MainListen(ctx context.Context, port string) {
+
+	r := NewMux(api.File)
 	// ":3000"
 	server := &http.Server{Addr: port, Handler: r}
 
