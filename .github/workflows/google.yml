@@ -8,6 +8,10 @@
 #
 # 3. Change the values for the GKE_ZONE, GKE_CLUSTER, IMAGE, REGISTRY_HOSTNAME and DEPLOYMENT_NAME environment variables (below).
 
+
+# service_account_key:
+#   cat pigdeXXXXX.json|base64 > file_to_save_as_secret
+
 name: Build and Deploy to GKE
 
 on:
