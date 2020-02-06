@@ -7,6 +7,13 @@
 
 # gomini
 
+```
+docker pull gcr.io/pigdevonlyx/gomini:test
+docker run -p 3000:3000 -it --rm  gcr.io/pigdevonlyx/gomini:test
+curl localhost:3000/data
+
+```
+
 
 ```
 minikube tunnel
