@@ -56,7 +56,7 @@ func TestMainListen(t *testing.T) {
 }
 
 func TestNewMux(t *testing.T) {
-	r := NewMux("/data")
+	r := NewMux("../test-fixtures/data.csv")
 	request, _ := http.NewRequest("GET", "/", nil)
 	response := httptest.NewRecorder()
 	r.ServeHTTP(response, request)
@@ -65,4 +65,10 @@ func TestNewMux(t *testing.T) {
 		t.Fatalf(response.Body.String())
 	}
 
+	request, _ = http.NewRequest("GET", "/data", nil)
+	r.ServeHTTP(response, request)
+
+	if !strings.Contains(response.Body.String(), "2,two") {
+		t.Fatalf(response.Body.String())
+	}
 }
