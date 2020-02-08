@@ -71,9 +71,11 @@ jobs:
         chmod u+x ./kustomize
         
     # BigQuery
-    - name: Work with BigQuery
+    - name: Working with BigQuery
       run: |
+       txt="Sample data to insert..." 
        bq query --nouse_legacy_sql 'CREATE TABLE IF NOT EXISTS  `pigdevonlyx.github.log` (msg string, timeEnter timestamp);'
-       bq query --nouse_legacy_sql 'insert into `pigdevonlyx.github.log` (msg,timeEnter) values ("works",CURRENT_TIMESTAMP())'
+       bq query --nouse_legacy_sql  --parameter=MSG:STRING:"${txt}"  'insert into `pigdevonlyx.github.log` (msg,timeEnter) values (@MSG,CURRENT_TIMESTAMP())
+
 
     
