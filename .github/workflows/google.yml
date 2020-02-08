@@ -69,5 +69,11 @@ jobs:
       run: |
         curl -o kustomize --location https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
         chmod u+x ./kustomize
+        
+    # BigQuery
+    - name: Work with BigQuery
+      run: |
+       bq query --nouse_legacy_sql 'CREATE TABLE IF NOT EXISTS  `pigdevonlyx.github.log` (msg string, timeEnter timestamp);'
+       bq query --nouse_legacy_sql 'insert into `pigdevonlyx.github.log` (msg,timeEnter) values ("works",CURRENT_TIMESTAMP())'
 
     
